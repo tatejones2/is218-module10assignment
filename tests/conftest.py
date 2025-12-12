@@ -111,7 +111,15 @@ def setup_test_database(request):
     - Create all tables based on the current models.
     - Optionally initialize the database with seed data.
     After tests, drop all tables unless --preserve-db is set.
+    
+    Skip database setup for unit tests that don't require a database.
     """
+    # Skip database setup for unit tests
+    if "unit" in request.node.nodeid:
+        logger.info("Skipping database setup for unit tests")
+        yield
+        return
+        
     logger.info("Setting up test database...")
 
     # Drop all tables to ensure a clean slate
