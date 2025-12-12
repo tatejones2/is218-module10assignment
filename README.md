@@ -1,3 +1,55 @@
+# IS218 Module 10 Assignment - User Authentication System
+
+## 🚀 Quick Links
+
+- **Docker Hub Repository**: [tatejones2/is218-module10](https://hub.docker.com/r/tatejones2/is218-module10)
+- **GitHub Repository**: [tatejones2/is218-module10assignment](https://github.com/tatejones2/is218-module10assignment)
+
+## 🧪 Running Tests Locally
+
+### Prerequisites
+- Python 3.10+
+- PostgreSQL (for integration tests)
+- Virtual environment
+
+### Run All Tests
+```bash
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run tests
+pytest tests/ -v --cov=app
+```
+
+### Run Specific Test Categories
+```bash
+# Unit tests only (no database required)
+pytest tests/unit/ -v
+
+# Integration tests only (requires PostgreSQL)
+pytest tests/integration/ -v
+
+# Generate coverage report
+pytest --cov=app --cov-report=html
+```
+
+### Using Docker
+```bash
+# Build the image
+docker build -t is218-module10:latest .
+
+# Run the application
+docker run -p 8000:8000 is218-module10:latest
+
+# Pull from Docker Hub
+docker pull tatejones2/is218-module10:latest
+```
+
+---
 # 📦 Project Setup
 
 ---
